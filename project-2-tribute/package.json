@@ -1,0 +1,12 @@
+{
+  "name": "nvidia-ceo-tribute",
+  "version": "1.0.0",
+  "description": "Tribute page for NVIDIA CEO Jensen Huang",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

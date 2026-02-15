@@ -1,0 +1,231 @@
+/* NVIDIA / Jensen Huang tribute — bold, tech, green/black */
+
+:root {
+  --nvidia-green: #76b900;
+  --nvidia-green-glow: rgba(118, 185, 0, 0.4);
+  --bg-dark: #0a0a0b;
+  --bg-card: #111113;
+  --text-primary: #e8e8e8;
+  --text-muted: #888;
+  --border: #222;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Share Tech Mono', monospace;
+  background: var(--bg-dark);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.noise {
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 2rem;
+}
+
+.hero-content {
+  text-align: center;
+  z-index: 2;
+}
+
+.tagline {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--nvidia-green);
+  margin-bottom: 0.5rem;
+}
+
+.hero h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 12vw, 7rem);
+  letter-spacing: 0.02em;
+  color: #fff;
+  text-shadow: 0 0 40px var(--nvidia-green-glow);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  color: var(--text-muted);
+  margin-bottom: 3rem;
+}
+
+.scroll-hint {
+  font-size: 1.5rem;
+  color: var(--nvidia-green);
+  opacity: 0.7;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+.hero-visual {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  opacity: 0.15;
+}
+
+.gpu-line {
+  width: 2px;
+  height: 60%;
+  background: linear-gradient(to bottom, transparent, var(--nvidia-green), transparent);
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.gpu-line:nth-child(2) { animation-delay: 0.5s; }
+.gpu-line:nth-child(3) { animation-delay: 1s; }
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+section {
+  padding: 4rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.intro {
+  padding-top: 4rem;
+}
+
+.quote {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  color: var(--text-primary);
+  border-left: 4px solid var(--nvidia-green);
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.attribution {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  padding-left: 1.5rem;
+}
+
+.bio h2,
+.legacy h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.2rem;
+  letter-spacing: 0.05em;
+  color: var(--nvidia-green);
+  margin-bottom: 2rem;
+}
+
+.bio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+}
+
+.bio-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.bio-card:hover {
+  border-color: var(--nvidia-green);
+  box-shadow: 0 0 20px var(--nvidia-green-glow);
+}
+
+.bio-card .year {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.1rem;
+  color: var(--nvidia-green);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.bio-card p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.legacy-list {
+  list-style: none;
+}
+
+.legacy-list li {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.legacy-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 1.4rem;
+  width: 6px;
+  height: 6px;
+  background: var(--nvidia-green);
+  border-radius: 50%;
+}
+
+.legacy-list strong {
+  color: var(--nvidia-green);
+}
+
+.tribute-close {
+  text-align: center;
+}
+
+.closing {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.nvidia-wordmark {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.5rem;
+  letter-spacing: 0.2em;
+  color: var(--nvidia-green);
+}
+
+footer {
+  padding: 2rem;
+  text-align: center;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
