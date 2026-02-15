@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skeuomorphic Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body data-theme="light">
+  <div class="calc-wrapper">
+    <header class="calc-header">
+      <h1>Calculator</h1>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <span class="icon-sun">☀</span>
+        <span class="icon-moon">🌙</span>
+      </button>
+    </header>
+
+    <div class="calc-body">
+      <div class="display-area">
+        <div class="expression" id="expression"></div>
+        <div class="result" id="result">0</div>
+      </div>
+
+      <div class="keypad">
+        <button class="key key-fn" data-action="clear">AC</button>
+        <button class="key key-fn" data-action="toggleSign">±</button>
+        <button class="key key-fn" data-action="percent">%</button>
+        <button class="key key-op" data-op="/">÷</button>
+
+        <button class="key key-num" data-num="7">7</button>
+        <button class="key key-num" data-num="8">8</button>
+        <button class="key key-num" data-num="9">9</button>
+        <button class="key key-op" data-op="*">×</button>
+
+        <button class="key key-num" data-num="4">4</button>
+        <button class="key key-num" data-num="5">5</button>
+        <button class="key key-num" data-num="6">6</button>
+        <button class="key key-op" data-op="-">−</button>
+
+        <button class="key key-num" data-num="1">1</button>
+        <button class="key key-num" data-num="2">2</button>
+        <button class="key key-num" data-num="3">3</button>
+        <button class="key key-op" data-op="+">+</button>
+
+        <button class="key key-num key-zero" data-num="0">0</button>
+        <button class="key key-num" data-num=".">.</button>
+        <button class="key key-equals" data-action="equals">=</button>
+
+        <button class="key key-adv" data-adv="sqrt">√</button>
+        <button class="key key-adv" data-adv="power">x²</button>
+        <button class="key key-adv" data-adv="inv">1/x</button>
+        <button class="key key-fn" data-action="backspace">⌫</button>
+      </div>
+
+      <div class="advanced-row">
+        <button class="key key-adv" data-adv="sin">sin</button>
+        <button class="key key-adv" data-adv="cos">cos</button>
+        <button class="key key-adv" data-adv="tan">tan</button>
+        <button class="key key-adv" data-adv="log">log</button>
+        <button class="key key-adv" data-adv="ln">ln</button>
+        <button class="key key-adv" data-adv="pi">π</button>
+        <button class="key key-adv" data-adv="e">e</button>
+      </div>
+
+      <aside class="history-panel" id="historyPanel">
+        <h3>History</h3>
+        <ul id="historyList"></ul>
+      </aside>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

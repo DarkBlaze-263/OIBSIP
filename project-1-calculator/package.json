@@ -1,0 +1,13 @@
+{
+  "name": "skeuomorphic-calculator",
+  "version": "1.0.0",
+  "description": "Skeuomorphic calculator with theme toggle",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
