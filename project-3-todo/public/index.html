@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do | Track Your Tasks</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-wrap">
+    <header class="header">
+      <h1>To-Do</h1>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <span class="icon-light">☀</span>
+        <span class="icon-dark">🌙</span>
+      </button>
+    </header>
+
+    <div class="add-task clay">
+      <input type="text" id="taskInput" placeholder="What needs to be done?" autocomplete="off">
+      <div class="due-inputs">
+        <label>
+          <span>Due date</span>
+          <input type="date" id="dueDate">
+        </label>
+        <label>
+          <span>Due time</span>
+          <input type="time" id="dueTime">
+        </label>
+      </div>
+      <button class="btn-add" id="addBtn">Add Task</button>
+    </div>
+
+    <div class="filters clay">
+      <button class="filter active" data-filter="all">All</button>
+      <button class="filter" data-filter="active">Active</button>
+      <button class="filter" data-filter="done">Done</button>
+      <button class="filter" data-filter="overdue">Overdue</button>
+    </div>
+
+    <ul class="task-list" id="taskList"></ul>
+
+    <div class="stats clay" id="stats"></div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

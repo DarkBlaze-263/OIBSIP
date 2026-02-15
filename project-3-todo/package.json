@@ -1,0 +1,12 @@
+{
+  "name": "claymorphism-todo",
+  "version": "1.0.0",
+  "description": "To-Do webapp with time limits and theme toggle",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
