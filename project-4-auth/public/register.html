@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register | Auth</title>
+  <link rel="stylesheet" href="auth.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="auth-card">
+    <h1>Register</h1>
+    <p class="sub">Create your account</p>
+    <form id="registerForm">
+      <label>
+        <span>Name</span>
+        <input type="text" name="name" placeholder="Your name" autocomplete="name">
+      </label>
+      <label>
+        <span>Email</span>
+        <input type="email" name="email" required placeholder="you@example.com" autocomplete="email">
+      </label>
+      <label>
+        <span>Password</span>
+        <input type="password" name="password" required placeholder="••••••••" autocomplete="new-password" minlength="6">
+      </label>
+      <button type="submit">Create account</button>
+    </form>
+    <p class="message" id="message"></p>
+    <p class="link">Already have an account? <a href="/login.html">Login</a></p>
+  </div>
+  <script src="auth.js"></script>
+  <script>
+    document.getElementById('registerForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const msg = document.getElementById('message');
+      const data = { name: form.name.value, email: form.email.value, password: form.password.value };
+      try {
+        const res = await fetch('/api/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        const json = await res.json();
+        if (json.ok) {
+          msg.textContent = 'Account created! Redirecting...';
+          msg.className = 'message success';
+          location.href = json.redirect;
+        } else {
+          msg.textContent = json.error || 'Registration failed';
+          msg.className = 'message error';
+        }
+      } catch (err) {
+        msg.textContent = 'Network error';
+        msg.className = 'message error';
+      }
+    });
+  </script>
+</body>
+</html>

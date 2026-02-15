@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | Secured</title>
+  <link rel="stylesheet" href="auth.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="dashboard-wrap">
+    <header class="dash-header">
+      <h1>Dashboard</h1>
+      <div class="user-info">
+        <span id="userName"></span>
+        <button id="logoutBtn">Logout</button>
+      </div>
+    </header>
+    <main class="dash-main">
+      <div class="welcome-card">
+        <h2>Welcome to your secured page</h2>
+        <p>You are logged in. Only authenticated users can see this content.</p>
+        <p class="email-display" id="userEmail"></p>
+      </div>
+    </main>
+  </div>
+  <script>
+    async function init() {
+      const res = await fetch('/api/me');
+      if (!res.ok) {
+        location.href = '/login.html';
+        return;
+      }
+      const user = await res.json();
+      document.getElementById('userName').textContent = user.name || user.email;
+      document.getElementById('userEmail').textContent = user.email;
+    }
+    document.getElementById('logoutBtn').addEventListener('click', async () => {
+      await fetch('/api/logout', { method: 'POST' });
+      location.href = '/login.html';
+    });
+    init();
+  </script>
+</body>
+</html>
